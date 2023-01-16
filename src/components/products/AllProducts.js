@@ -11,7 +11,7 @@ const AllProducts = () => {
 	useEffect(() => {
 		const fetchProducts = async () => {
 			const response = await fetch(
-				"https://my-json-server.typicode.com/Lol7a/web-shop-app/products"
+				"https://my-json-server.typicode.com/Lol7a/webapp/products"
 			);
 			const responseData = await response.json();
 
