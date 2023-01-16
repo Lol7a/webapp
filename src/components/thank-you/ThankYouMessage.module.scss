@@ -1,0 +1,60 @@
+@import "../../scss/utility.scss";
+
+.thank-you {
+	width: 100%;
+	max-width: 50%;
+
+	&__card {
+		padding: rem(32) rem(16);
+	}
+
+	&__title {
+		font-size: rem(24);
+		margin-bottom: rem(16);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		justify-content: space-between;
+
+		& h1 {
+			text-transform: uppercase;
+			font-size: rem(48);
+			margin-bottom: rem(32);
+		}
+	}
+
+	& ul {
+		width: 100%;
+		border-bottom: 1px solid $green;
+		padding-bottom: rem(16);
+	}
+
+	& li {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0 1rem;
+
+		& h3 {
+			font-size: 1.75rem;
+		}
+	}
+}
+
+.total {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: bold;
+	margin: rem(32) 0;
+	padding: 0 rem(16);
+
+	& span {
+		font-size: rem(32);
+	}
+}
+
+.actions {
+	text-align: right;
+}

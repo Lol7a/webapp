@@ -1,0 +1,26 @@
+@import "../utility.scss";
+
+html {
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden auto;
+	overscroll-behavior-y: none;
+	background-color: $background;
+	color: $color;
+
+	&.hidden {
+		overflow: hidden;
+	}
+}
+
+body {
+	font-family: "Montserrat";
+	position: relative;
+	overflow: hidden;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	// background: url("../../assets/ella-olsson-2IxTgsgFi-s-unsplash.jpg");
+	// background-size: cover;
+	// background-position: center;
+	// background-repeat: no-repeat;
+}

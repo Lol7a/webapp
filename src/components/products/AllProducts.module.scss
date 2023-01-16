@@ -1,0 +1,48 @@
+@import "../../scss/utility.scss";
+
+.products {
+	&__card {
+		background: rgba($light-black, 0.75);
+	}
+
+	& ul {
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+
+		// & li:first-of-type {
+		// 	padding-top: 0;
+		// 	border-top: none;
+		// }
+
+		& li {
+			width: 100%;
+			max-width: 25%;
+		}
+	}
+
+	&-loading {
+		text-align: center;
+		color: $white;
+	}
+
+	&-error {
+		text-align: center;
+		color: red;
+	}
+}
+
+@keyframes meals-appear {
+	from {
+		opacity: 0;
+		transform: translateY(3rem);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

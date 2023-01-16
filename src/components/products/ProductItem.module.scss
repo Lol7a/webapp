@@ -1,0 +1,48 @@
+@import "../../scss/utility.scss";
+
+.product {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin: 1rem;
+	padding: 1rem 1rem;
+	text-align: center;
+	// border-top: 1px solid $light-green;
+	// border-top-left-radius: rem(14);
+	// border-top-right-radius: rem(14);
+
+	// @media (min-width: 768px) {
+	// 	flex-direction: row;
+	// 	align-items: center;
+	// }
+
+	& h3 {
+		font-size: rem(20);
+		margin-bottom: 0.5rem;
+	}
+
+	& div:first-of-type {
+		width: 100%;
+		@media (min-width: 768px) {
+			max-width: 80%;
+		}
+	}
+}
+
+.img {
+	width: 100%;
+	margin-bottom: 0.5rem;
+	// border-radius: rem(14);
+}
+
+.description {
+	font-size: rem(18);
+	margin-bottom: 0.5rem;
+}
+
+.price {
+	margin-bottom: 0.5rem;
+	color: $light-green;
+	font-size: 1.25rem;
+}
