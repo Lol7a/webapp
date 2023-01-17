@@ -7,9 +7,6 @@ import classes from "./ProductItem.module.scss";
 const ProductItem = (props) => {
 	const ctx = useCartContext();
 	const price = `$${props.price.toFixed(2)}`;
-	// const amount = `$${props.amount.toFixed(2)}`;
-
-	console.log(ctx);
 
 	const addToCartHandler = () => {
 		ctx.addProduct({
@@ -18,8 +15,6 @@ const ProductItem = (props) => {
 			price: props.price,
 			amount: 1,
 		});
-
-		console.log(ctx);
 	};
 
 	return (

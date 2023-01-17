@@ -90,8 +90,7 @@ const CartProvider = (props) => {
 	};
 
 	const clearCartHandler = () => {
-		defaultCartState({ type: "CLEAR" });
-		console.log("clearCart");
+		dispatchCartAction({ type: "CLEAR" });
 	};
 
 	const context = {

@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useCartContext } from "../../store/cart-cotext";
 import Button from "../ui/Button";
 import Card from "../ui/Card";
 import Section from "../ui/Section";
@@ -7,8 +8,16 @@ import Section from "../ui/Section";
 import classes from "./CartCheckout.module.scss";
 
 const isEmpty = (value) => value.trim() === "";
+const isEmailValid = (email) => /\S+@\S+\.\S+/.test(email);
+const isPhoneValid = (phone) =>
+	/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phone);
+const isCreditCardValid = (creditCard) =>
+	/^5[1-5][0-9]{14}$|^2(?:2(?:2[1-9]|[3-9][0-9])|[3-6][0-9][0-9]|7(?:[01][0-9]|20))[0-9]{12}$/.test(
+		creditCard
+	);
 
 const CartCheckout = (props) => {
+	const ctx = useCartContext();
 	const current = new Date().toISOString().split("T")[0];
 	const navigate = useNavigate();
 	const [formValidity, setFormValidity] = useState({
@@ -27,7 +36,7 @@ const CartCheckout = (props) => {
 	const phoneRef = useRef();
 	const emailRef = useRef();
 
-	const submitHandler = (event) => {
+	const submitHandler = async (event) => {
 		event.preventDefault();
 
 		const enteredFullName = fullNameRef.current.value;
@@ -40,9 +49,12 @@ const CartCheckout = (props) => {
 		const enteredFullNameValid = !isEmpty(enteredFullName);
 		const enteredBirthdayValid = !isEmpty(enteredBirthday);
 		const enteredGenderValid = !isEmpty(enteredGender);
-		const enteredCreditCardValid = !isEmpty(enteredCreditCard);
-		const enteredPhoneValid = !isEmpty(enteredPhone);
-		const enteredEmailValid = !isEmpty(enteredEmail);
+		const enteredCreditCardValid =
+			!isEmpty(enteredCreditCard) && isCreditCardValid(enteredCreditCard);
+		const enteredPhoneValid =
+			!isEmpty(enteredPhone) && isPhoneValid(enteredPhone);
+		const enteredEmailValid =
+			!isEmpty(enteredEmail) && isEmailValid(enteredEmail);
 
 		setFormValidity({
 			fullName: enteredFullNameValid,
@@ -66,13 +78,37 @@ const CartCheckout = (props) => {
 		} else {
 			navigate("/thank-you");
 		}
+
+		await fetch("https://my-json-server.typicode.com/Lol7a/webapp/orders", {
+			method: "POST",
+			body: JSON.stringify({
+				user: {
+					fullName: enteredFullName,
+					birthday: enteredBirthday,
+					gender: enteredGender,
+					creditCard: enteredCreditCard,
+					phone: enteredPhone,
+					email: enteredEmail,
+					orderTime: new Date().toLocaleDateString("en-UK"),
+				},
+				orderedItems: ctx.products,
+			}),
+			headers: {
+				"Content-type": "application/json; charset=UTF-8",
+			},
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				localStorage.setItem("orders", JSON.stringify(data));
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	};
 
 	const cancelHandler = () => {
 		navigate("/shopping-cart");
 	};
-
-	// const confirmHandler = () => {};
 
 	return (
 		<Section className={classes.checkout}>
@@ -94,7 +130,13 @@ const CartCheckout = (props) => {
 						}`}
 					>
 						<label htmlFor="birthday">Your Birthday</label>
-						<input type="date" id="birthday" max={current} ref={birthdayRef} />
+						<input
+							type="date"
+							id="birthday"
+							name="birthday"
+							max={current}
+							ref={birthdayRef}
+						/>
 						{!formValidity.birthday && <p>Please enter your birthday!</p>}
 					</div>
 
@@ -104,11 +146,27 @@ const CartCheckout = (props) => {
 						}`}
 					>
 						<label htmlFor="gender">Your Gender</label>
-						<input type="radio" id="gender" name="gender" ref={genderRef} />
-						<label>Male</label>
-						<input type="radio" id="gender" name="gender" ref={genderRef} />
-						<label>Female</label>
-						{!formValidity.gender && <p>Please enter your gender!</p>}
+						<div className={classes.radio}>
+							<label>Male</label>
+							<input
+								type="radio"
+								id="male"
+								name="gender"
+								value="male"
+								required
+								ref={genderRef}
+							/>
+							<label>Female</label>
+							<input
+								type="radio"
+								id="female"
+								name="gender"
+								value="female"
+								required
+								ref={genderRef}
+							/>
+							{!formValidity.gender && <p>Please enter your gender!</p>}
+						</div>
 					</div>
 
 					<div
@@ -127,7 +185,7 @@ const CartCheckout = (props) => {
 						}`}
 					>
 						<label htmlFor="phone">Your Phone Number</label>
-						<input type="text" id="phone" ref={phoneRef} />
+						<input type="text" id="phone" name="phone" ref={phoneRef} />
 						{!formValidity.phone && <p>Please enter your phone number!</p>}
 					</div>
 
@@ -137,7 +195,7 @@ const CartCheckout = (props) => {
 						}`}
 					>
 						<label htmlFor="email">Your Email</label>
-						<input type="text" id="email" ref={emailRef} />
+						<input type="email" id="email" ref={emailRef} />
 						{!formValidity.email && <p>Please enter your email!</p>}
 					</div>
 

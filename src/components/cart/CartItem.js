@@ -1,10 +1,8 @@
-import { useCartContext } from "../../store/cart-cotext";
 import Button from "../ui/Button";
 
 import classes from "./CartItem.module.scss";
 
 const CartItem = (props) => {
-	const ctx = useCartContext();
 	const price = `$${props.price.toFixed(2)}`;
 
 	return (
@@ -17,7 +15,7 @@ const CartItem = (props) => {
 				</div>
 			</div>
 
-			<div className={classes.actions}>
+			<div className={classes["cart__actions"]}>
 				<Button isEmpty={true} clickHandler={props.onRemove}>
 					-
 				</Button>

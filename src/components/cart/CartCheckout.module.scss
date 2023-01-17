@@ -17,6 +17,7 @@
 
 .control {
 	margin-bottom: rem(16);
+	width: 100%;
 
 	& label {
 		font-weight: bold;
@@ -30,6 +31,22 @@
 		border-radius: rem(4);
 		width: rem(320);
 		max-width: 100%;
+	}
+}
+
+.radio {
+	display: flex;
+	width: 100%;
+	max-width: 100%;
+	align-items: center;
+
+	& label {
+		margin: 0 rem(16);
+		width: 100%;
+	}
+
+	& input {
+		width: 100%;
 	}
 }
 

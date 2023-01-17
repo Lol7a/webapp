@@ -31,7 +31,7 @@ const AllProducts = () => {
 		};
 
 		fetchProducts();
-	});
+	}, []);
 
 	const productsList = products.map((product) => (
 		<ProductItem

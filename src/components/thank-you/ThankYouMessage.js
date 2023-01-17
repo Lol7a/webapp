@@ -1,16 +1,20 @@
+import { useNavigate } from "react-router-dom";
+import { useCartContext } from "../../store/cart-cotext";
 import Card from "../ui/Card";
 import Button from "../ui/Button";
 import Section from "../ui/Section";
 
 import classes from "./ThankYouMessage.module.scss";
-import { Link } from "react-router-dom";
-import { useCartContext } from "../../store/cart-cotext";
 
 const ThankYouMessage = (props) => {
 	const ctx = useCartContext();
+	const navigate = useNavigate();
 	const totalAmount = `$${ctx.totalAmount.toFixed(2)}`;
 
-	console.log(ctx.products.length);
+	const continueHandler = () => {
+		ctx.clearCart();
+		navigate("/");
+	};
 
 	return (
 		<Section className={classes["thank-you"]}>
@@ -36,9 +40,7 @@ const ThankYouMessage = (props) => {
 					</div>
 				</div>
 				<div className={classes.actions}>
-					<Link to="/">
-						<Button>Continue Shopping</Button>
-					</Link>
+					<Button clickHandler={continueHandler}>Continue Shopping</Button>
 				</div>
 			</Card>
 		</Section>
