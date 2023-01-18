@@ -43,7 +43,7 @@
 	flex-direction: column;
 
 	@media (min-width: 1024px) {
-		flex-direction: row;
+		// flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
 	}
@@ -71,10 +71,7 @@
 			z-index: -1;
 		}
 
-		@media (min-width: 1024px) {
-			margin-right: rem(8);
-			margin-bottom: 0;
-		}
+
 
 		&:hover,
 		&:active {
