@@ -5,25 +5,17 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	margin: 1rem;
-	padding: 1rem 1rem;
+	margin: rem(16);
+	padding: rem(16);
 	text-align: center;
-	// border-top: 1px solid $light-green;
-	// border-top-left-radius: rem(14);
-	// border-top-right-radius: rem(14);
 
-	// @media (min-width: 768px) {
-	// 	flex-direction: row;
-	// 	align-items: center;
-	// }
-
-	& h3 {
-		font-size: rem(20);
-		margin-bottom: 0.5rem;
+	& h5 {
+		margin-bottom: rem(8);
 	}
 
 	& div:first-of-type {
 		width: 100%;
+
 		@media (min-width: 768px) {
 			max-width: 80%;
 		}
@@ -32,17 +24,67 @@
 
 .img {
 	width: 100%;
-	margin-bottom: 0.5rem;
-	// border-radius: rem(14);
+	margin-bottom: rem(8);
+	border-radius: rem(14);
 }
 
 .description {
-	font-size: rem(18);
-	margin-bottom: 0.5rem;
+	margin-bottom: rem(8);
 }
 
 .price {
-	margin-bottom: 0.5rem;
+	margin-bottom: rem(8);
 	color: $light-green;
-	font-size: 1.25rem;
+	font-size: rem(20);
+}
+
+.actions {
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: 1024px) {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	& a {
+		position: relative;
+		display: inline-flex;
+		margin-bottom: rem(8);
+		padding: rem(8) rem(32);
+		color: $green;
+		border: rem(1) solid $green;
+		overflow: hidden;
+		border-radius: rem(25);
+		transition: all 0.5s ease;
+		z-index: 1;
+
+		&::before {
+			content: "";
+			position: absolute;
+			transition: inherit;
+			bottom: 0;
+			left: 0;
+			height: 0;
+			width: 100%;
+			z-index: -1;
+		}
+
+		@media (min-width: 1024px) {
+			margin-right: rem(8);
+			margin-bottom: 0;
+		}
+
+		&:hover,
+		&:active {
+			color: $white;
+			border: rem(1) solid $light-green;
+
+			&::before {
+				height: 100%;
+				background-color: $light-green;
+			}
+		}
+	}
 }

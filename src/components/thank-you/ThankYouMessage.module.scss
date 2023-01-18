@@ -2,39 +2,43 @@
 
 .thank-you {
 	width: 100%;
-	max-width: 50%;
+	max-width: 45%;
 
 	&__card {
 		padding: rem(32) rem(16);
 	}
 
 	&__title {
-		font-size: rem(24);
-		margin-bottom: rem(16);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		text-align: center;
 		justify-content: space-between;
+		margin-bottom: rem(24);
+		text-align: center;
+		font-size: rem(24);
 
 		& h1 {
+			margin-bottom: rem(24);
 			text-transform: uppercase;
-			font-size: rem(48);
-			margin-bottom: rem(32);
 		}
 	}
 
 	& ul {
 		width: 100%;
-		border-bottom: 1px solid $green;
 		padding-bottom: rem(16);
+		border-bottom: 1px solid $green;
 	}
 
 	& li {
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
 		align-items: center;
 		padding: 0 1rem;
+
+		@media (min-width: 768px) {
+			flex-direction: row;
+		}
 
 		& h3 {
 			font-size: 1.75rem;
@@ -44,17 +48,34 @@
 
 .total {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
 	align-items: center;
+	margin: 0 rem(16);
+	padding: rem(32) 0;
 	font-weight: bold;
-	margin: rem(32) 0;
-	padding: 0 rem(16);
 
 	& span {
 		font-size: rem(32);
+
+		&:first-of-type {
+			margin-bottom: rem(16);
+
+			@media (mibn-width: 768px) {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+		justify-content: space-between;
 	}
 }
 
 .actions {
-	text-align: right;
+	text-align: center;
+
+	@media (min-width: 768px) {
+		text-align: right;
+	}
 }

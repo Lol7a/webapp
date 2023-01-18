@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCartContext } from "../../store/cart-cotext";
 import Button from "../ui/Button";
 import Card from "../ui/Card";
@@ -22,11 +23,14 @@ const ProductItem = (props) => {
 			<Card className={classes.product}>
 				<div>
 					<img src={props.image} alt={props.name} className={classes.img} />
-					<h3>{props.name}</h3>
+					<h5>{props.name}</h5>
 					<p className={classes.description}>{props.description}</p>
 					<span className={classes.price}>{price}</span>
 				</div>
-				<div>
+				<div className={classes.actions}>
+					<Link to={`/home/${+props.id + 1}`} id={props.id}>
+						View Details
+					</Link>
 					<Button clickHandler={addToCartHandler} id={props.id}>
 						Add to Cart
 					</Button>

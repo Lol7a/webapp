@@ -1,0 +1,47 @@
+@import "../../scss/utility.scss";
+
+.detail {
+	max-width: 40%;
+
+	&__card {
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		max-width: 100%;
+
+		& h5 {
+			margin-bottom: rem(8);
+		}
+	}
+
+	&__actions {
+		text-align: center;
+
+		@media (min-width: 768px) {
+			text-align: right;
+		}
+	}
+}
+
+.img {
+	max-width: 100%;
+	margin-bottom: rem(8);
+
+	@media (min-width: 768px) {
+		max-width: 40%;
+	}
+}
+
+.description {
+	margin-bottom: rem(8);
+}
+
+.price {
+	margin-bottom: rem(8);
+	color: $light-green;
+	font-size: rem(20);
+}

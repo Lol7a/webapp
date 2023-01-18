@@ -6,6 +6,7 @@ import Checkout from "./pages/Checkout";
 import CartProvider from "./store/cart-cotext";
 import ThankYou from "./pages/ThankYou";
 import Admin from "./pages/Admin";
+import Detail from "./pages/Detail";
 
 const App = () => {
 	return (
@@ -14,7 +15,8 @@ const App = () => {
 			<main>
 				<Routes>
 					<Route path="/" element={<Navigate to="/home" />} />
-					<Route path="/home" element={<Home />} />
+					<Route path="/home/*" element={<Home />} />
+					<Route path="/home/:productId" element={<Detail />} />
 					<Route path="/shopping-cart/*" element={<ShoppingCart />} />
 					<Route path="/shopping-cart/checkout" element={<Checkout />} />
 					<Route path="/thank-you" element={<ThankYou />} />

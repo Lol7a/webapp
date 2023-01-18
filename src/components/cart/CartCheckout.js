@@ -18,7 +18,7 @@ const isCreditCardValid = (creditCard) =>
 
 const CartCheckout = (props) => {
 	const ctx = useCartContext();
-	const current = new Date().toISOString().split("T")[0];
+	const current = new Date();
 	const navigate = useNavigate();
 	const [formValidity, setFormValidity] = useState({
 		fullName: true,
@@ -89,7 +89,7 @@ const CartCheckout = (props) => {
 					creditCard: enteredCreditCard,
 					phone: enteredPhone,
 					email: enteredEmail,
-					orderTime: new Date().toLocaleDateString("en-UK"),
+					orderTime: new Date(),
 				},
 				orderedItems: ctx.products,
 			}),

@@ -2,7 +2,7 @@
 
 .cart {
 	width: 100%;
-	max-width: 50%;
+	max-width: 40%;
 
 	&__list {
 		list-style: none;
@@ -30,6 +30,14 @@
 
 	& span {
 		font-size: rem(32);
+
+		&:first-of-type {
+			margin-bottom: rem(16);
+
+			@media (min-width: 768px) {
+				margin-bottom: 0;
+			}
+		}
 	}
 }
 

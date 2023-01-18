@@ -41,16 +41,16 @@ const Cart = (props) => {
 
 	const cartActions = (
 		<div className={classes.actions}>
-			<Link to="/">
-				<Button isEmpty={true} className={classes["btn--alt"]}>
-					Continue Shopping
-				</Button>
-			</Link>
 			{hasProducts && (
 				<Link to="/shopping-cart/checkout">
 					<Button className={classes.btn}>Checkout</Button>
 				</Link>
 			)}
+			<Link to="/">
+				<Button isEmpty={true} className={classes["btn--alt"]}>
+					Continue Shopping
+				</Button>
+			</Link>
 		</div>
 	);
 

@@ -33,17 +33,18 @@ const AllProducts = () => {
 		fetchProducts();
 	}, []);
 
-	const productsList = products.map((product) => (
-		<ProductItem
-			key={product.id}
-			id={product.id}
-			name={product.name}
-			description={product.description}
-			image={product.image}
-			price={product.price}
-			// product={product}
-		/>
-	));
+	const productsList = products.map((product) => {
+		return (
+			<ProductItem
+				key={product.id}
+				id={product.id}
+				name={product.name}
+				description={product.description}
+				image={product.image}
+				price={product.price}
+			/>
+		);
+	});
 
 	return (
 		<Section className={classes.products}>

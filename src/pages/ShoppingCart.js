@@ -1,5 +1,5 @@
-import Cart from "../components/cart/Cart";
 import Wrapper from "../components/helpers/Wrapper";
+import Cart from "../components/cart/Cart";
 
 const ShoppingCart = () => {
 	return (

@@ -1,5 +1,5 @@
-import CartCheckout from "../components/cart/CartCheckout";
 import Wrapper from "../components/helpers/Wrapper";
+import CartCheckout from "../components/cart/CartCheckout";
 
 const Checkout = () => {
 	return (
