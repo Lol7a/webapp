@@ -10,22 +10,10 @@ const AllProducts = () => {
 
 	useEffect(() => {
 		const fetchProducts = async () => {
-			const response = await fetch(
-				"https://my-json-server.typicode.com/Lol7a/webapp/products"
-			);
+			const response = await fetch("http://localhost:8000/products");
 			const responseData = await response.json();
 
-			const loadedProducts = [];
-
-			for (const key in responseData) {
-				loadedProducts.push({
-					id: key,
-					name: responseData[key].name,
-					description: responseData[key].description,
-					price: responseData[key].price,
-					image: responseData[key].image,
-				});
-			}
+			const loadedProducts = [...responseData];
 
 			setProducts(loadedProducts);
 		};

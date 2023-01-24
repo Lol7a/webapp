@@ -79,7 +79,7 @@ const CartCheckout = (props) => {
 			navigate("/thank-you");
 		}
 
-		await fetch("https://my-json-server.typicode.com/Lol7a/webapp/orders", {
+		await fetch("http://localhost:8000/orders", {
 			method: "POST",
 			body: JSON.stringify({
 				user: {
@@ -98,9 +98,6 @@ const CartCheckout = (props) => {
 			},
 		})
 			.then((res) => res.json())
-			.then((data) => {
-				localStorage.setItem("orders", JSON.stringify(data));
-			})
 			.catch((err) => {
 				console.log(err);
 			});

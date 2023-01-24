@@ -3,10 +3,12 @@ import { useParams, Link } from "react-router-dom";
 import Section from "../ui/Section";
 import Card from "../ui/Card";
 import Button from "../ui/Button";
+import { useCartContext } from "../../store/cart-cotext";
 
 import classes from "./ProductDetail.module.scss";
 
 const ProductDetail = () => {
+	const ctx = useCartContext();
 	const [product, setProduct] = useState();
 	const params = useParams();
 
@@ -15,14 +17,13 @@ const ProductDetail = () => {
 	useEffect(() => {
 		const fetchProduct = async (productId) => {
 			const response = await fetch(
-				`https://my-json-server.typicode.com/Lol7a/webapp/products/${productId}`
+				`http://localhost:8000/products/${productId}`
 			);
 
 			const responseData = await response.json();
 
 			const loadedProduct = {
 				...responseData,
-				id: productId,
 			};
 
 			setProduct(loadedProduct);
@@ -30,6 +31,15 @@ const ProductDetail = () => {
 
 		fetchProduct(productId);
 	}, [productId]);
+
+	const addToCartHandler = () => {
+		ctx.addProduct({
+			id: product.id,
+			name: product.name,
+			price: product.price,
+			amount: 1,
+		});
+	};
 
 	return (
 		<Section className={classes.detail}>
@@ -57,6 +67,8 @@ const ProductDetail = () => {
 								Continue Shopping
 							</Button>
 						</Link>
+
+						<Button clickHandler={addToCartHandler}>Add to Cart</Button>
 					</div>
 				</Card>
 			)}

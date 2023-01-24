@@ -28,7 +28,7 @@ const ProductItem = (props) => {
 					<span className={classes.price}>{price}</span>
 				</div>
 				<div className={classes.actions}>
-					<Link to={`/home/${+props.id + 1}`} id={props.id}>
+					<Link to={`/home/${+props.id}`} id={props.id}>
 						View Details
 					</Link>
 					<Button clickHandler={addToCartHandler} id={props.id}>

@@ -1,0 +1,158 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "description": "Description of product 1",
+      "price": 5.99,
+      "image": "https://images.unsplash.com/photo-1673868077539-9c3120f78420?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "description": "Description of product 2",
+      "price": 7.99,
+      "image": "https://images.unsplash.com/photo-1673868077539-9c3120f78420?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+    },
+    {
+      "id": 3,
+      "name": "Product 3",
+      "description": "Description of product 3",
+      "price": 3.99,
+      "image": "https://images.unsplash.com/photo-1673868077539-9c3120f78420?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+    },
+    {
+      "id": 4,
+      "name": "Product 4",
+      "description": "Description of product 4",
+      "price": 4.99,
+      "image": "https://images.unsplash.com/photo-1673868077539-9c3120f78420?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+    },
+    {
+      "id": 5,
+      "name": "Product 5",
+      "description": "Description of product 5",
+      "price": 5.99,
+      "image": "https://images.unsplash.com/photo-1673868077539-9c3120f78420?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+    },
+    {
+      "id": 6,
+      "name": "Product 6",
+      "description": "Description of product 6",
+      "price": 6.99,
+      "image": "https://images.unsplash.com/photo-1673868077539-9c3120f78420?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80"
+    }
+  ],
+  "orders": [
+    {
+      "user": {
+        "fullName": "Danijela Lola Lapić",
+        "birthday": "2023-01-14",
+        "gender": "female",
+        "creditCard": "5123456789000000",
+        "phone": "0695040970",
+        "email": "test@test.com",
+        "orderTime": "2023-01-20T16:29:03.912Z"
+      },
+      "orderedItems": [
+        {
+          "id": 2,
+          "name": "Product 2",
+          "price": 7.99,
+          "amount": 4
+        },
+        {
+          "id": 3,
+          "name": "Product 3",
+          "price": 3.99,
+          "amount": 1
+        },
+        {
+          "id": 1,
+          "name": "Product 1",
+          "price": 5.99,
+          "amount": 1
+        },
+        {
+          "id": 4,
+          "name": "Product 4",
+          "price": 4.99,
+          "amount": 1
+        },
+        {
+          "id": 5,
+          "name": "Product 5",
+          "price": 5.99,
+          "amount": 1
+        },
+        {
+          "id": 6,
+          "name": "Product 6",
+          "price": 6.99,
+          "amount": 3
+        }
+      ],
+      "id": 1
+    },
+    {
+      "user": {
+        "fullName": "Lily",
+        "birthday": "2023-01-07",
+        "gender": "female",
+        "creditCard": "5124567346581234",
+        "phone": "0695040970",
+        "email": "lol@test.com",
+        "orderTime": "2023-01-20T16:30:03.910Z"
+      },
+      "orderedItems": [
+        {
+          "id": 1,
+          "name": "Product 1",
+          "price": 5.99,
+          "amount": 1
+        }
+      ],
+      "id": 2
+    },
+    {
+      "user": {
+        "fullName": "Danijela Lola Lapić",
+        "birthday": "2023-01-07",
+        "gender": "female",
+        "creditCard": "5124567346581234",
+        "phone": "0695040970",
+        "email": "test@test.com",
+        "orderTime": "2023-01-20T16:41:17.870Z"
+      },
+      "orderedItems": [
+        {
+          "id": 2,
+          "name": "Product 2",
+          "price": 7.99,
+          "amount": 3
+        }
+      ],
+      "id": 3
+    },
+    {
+      "user": {
+        "fullName": "Danijela Lola Lapić",
+        "birthday": "2023-01-06",
+        "gender": "female",
+        "creditCard": "5124567346581234",
+        "phone": "0695040970",
+        "email": "lol@test.com",
+        "orderTime": "2023-01-23T16:46:26.069Z"
+      },
+      "orderedItems": [
+        {
+          "id": 1,
+          "name": "Product 1",
+          "price": 5.99,
+          "amount": 4
+        }
+      ],
+      "id": 4
+    }
+  ]
+}
